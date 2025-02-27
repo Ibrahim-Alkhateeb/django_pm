@@ -1,11 +1,12 @@
 {% load i18n %}
 {%block content%}
     <h1>
-        Create Project
+        Delete Project
     </h1>
+    <p>Are You Sure?</p>
     <form method="POST">
         {%csrf_token%} <!csrf_token use for protect>
         {{ form }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Submit" />
     </form>
 {%endblock content%}
