@@ -8,6 +8,16 @@ from projects.models import Project
 class ProjectListView(ListView):
     model = Project
     template_name = 'project/list.html'
+    paginate_by = 6
+
+    def get_queryset(self):
+        query_set = super().get_queryset()
+        where = {}#'user_id': self.request.user
+        q = self.request.GET.get('q', None)
+        if q:
+            where['title__icontains'] = q
+        return query_set.filter(**where)
+
 
 class ProjectCreateView(CreateView):
     model= models.Project
