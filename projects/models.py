@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
+
 
 # Create your models here.
 
@@ -10,10 +12,10 @@ class Category(models.Model):
         return self.name
 
 class ProjectStatus(models.IntegerChoices):
-    PENDING= 1, 'Pending'
-    COMPLETED= 2, 'Completed'
-    POSTPONED= 3, 'Postponed'
-    CANCELED= 4, 'Canceled'
+    PENDING= 1, _('Pending')
+    COMPLETED= 2, _('Completed')
+    POSTPONED= 3, _('Postponed')
+    CANCELED= 4, _('Canceled')
 
 class Project(models.Model):
     title= models.CharField(max_length=255)
