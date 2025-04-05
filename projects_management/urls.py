@@ -17,10 +17,15 @@ Including another URLconf
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
+from django.utils.translation import gettext_lazy as _
+
+admin.site.site_header = _('Projects Management')
+admin.site.site_title = _('Projects Management')
+
 
 urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
-    path('admin/', admin.site.urls),
+    path('PmAdmin/', admin.site.urls),
     path('', include('projects.urls')),
     path('accounts/', include('accounts.urls')),
 ]
